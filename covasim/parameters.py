@@ -526,7 +526,7 @@ class GenParsBuilder(IGenParsBuilder):
 class GenPars:
     """The generic parameters product."""
     
-    def __init__(self, set_prognoses, prog_by_age=True, version = None, **kwargs) -> dict:
+    def __init__(self, set_prognoses=True, prog_by_age=True, version = None, **kwargs) -> dict:
         self.pars = {}
         #pars is incrementally built by appeneding diffrent types of parameters.
         self.pars = self.pars.set_pop_pars() # add population pars
