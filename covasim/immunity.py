@@ -53,8 +53,8 @@ class variant(sc.prettyobj):
         # Option 1: variants can be chosen from a list of pre-defined variants
         if isinstance(variant, str):
 
-            choices, mapping = cvpar.get_variant_choices()
-            known_variant_pars = cvpar.get_variant_pars()
+            choices, mapping = cvpar.GenParsBuilder.get_variant_choices()
+            known_variant_pars = cvpar.GenParsBuilder.get_variant_pars()
 
             label = variant.lower()
             for txt in ['.', ' ', 'variant', 'variant', 'voc']:
@@ -70,7 +70,7 @@ class variant(sc.prettyobj):
         # Option 2: variants can be specified as a dict of pars
         elif isinstance(variant, dict):
 
-            default_variant_pars = cvpar.get_variant_pars(default=True)
+            default_variant_pars = cvpar.GenParsBuilder.get_variant_pars(default=True)
             default_keys = list(default_variant_pars.keys())
 
             # Parse label
