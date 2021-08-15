@@ -486,7 +486,42 @@ class GenParsBuilder(IGenParsBuilder):
                 par[lkey] = par_dict.get(lkey, default_val) # Get the value for this layer if available, else use the default for random
             self.pars[pkey] = par # Save this parameter to the dictionary
         return
-
+    @classmethod
+    def get_prognoses(self, by_age=True, version=None):
+        """Get default parameter values for prognoses"""
+        return None
+    @classmethod
+    def relative_prognoses(self, prognoses):
+        """Compute relative prognoses"""
+        return None    
+    @classmethod
+    def absolute_prognoses(self, prognoses):
+        """Compute absolute prognoses"""
+        return None
+    @classmethod
+    def get_variant_choices(self):
+        """Get variant choices"""
+        return None
+    @classmethod
+    def get_variant_pars(self):
+        """Get variant parameters"""
+        return None
+    @classmethod
+    def get_cross_immunity(self, default=False):
+        """Get cross immunity"""
+        return None
+    @classmethod
+    def get_vaccine_choices(self):
+        """Get vaccine choices"""
+        return None
+    @classmethod
+    def get_vaccine_variant_pars(self, default=False):
+        """Get vaccine variant parameters"""
+        return None
+    @classmethod
+    def get_vaccine_dose_pars(default=False):
+        """get vaccine dosage parameters"""
+        return None
 
 class GenPars:
     """The generic parameters product."""
@@ -514,8 +549,8 @@ class GenPars:
 class PrognosesBuilder(IGenParsBuilder):
         
     def __init__(self):
-        super().__init__()
-        self.pars = self.get_prognoses()
+        super(IGenParsBuilder, self).__init__()
+        self.pars = PrognosesBuilder.get_prognoses()
         
         
     def get_prognoses(by_age=True, version=None):
