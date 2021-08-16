@@ -761,7 +761,7 @@ class VariantBuilder(IGenParsBuilder):
         else:
             return pars
  #%% Vaccine parameters and functions
-class Vaccine(IGenParsBuilder):
+class VaccineBuilder(IGenParsBuilder):
     def get_vaccine_choices():
         '''
         Define valid pre-defined vaccine names
